@@ -165,7 +165,7 @@
         (box :orientation "vertical" :class "DialogueFrame PowerMenu" :halign "start" :space-evenly false :expand false
             
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt1" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt1" :onclick "systemctl poweroff"
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "Shutdown" :class "button-text" :halign "start")
                     )
@@ -173,7 +173,7 @@
             )
 
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "systemctl reboot"
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "Reboot" :class "button-text" :halign "start")
                     )
@@ -181,7 +181,7 @@
             )
 
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :class "Sleep" :onclick "systemctl suspend"
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "Sleep" :class "button-text" :halign "start")
                     )
@@ -189,7 +189,7 @@
             )
 
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt4" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt4" :onclick "hyprctl dispatch exit"
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "Logout" :class "button-text" :halign "start")
                     )
@@ -197,7 +197,7 @@
             )
 
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt5" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt5" :onclick "gtklock"
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "Lock" :class "button-text" :halign "start")
                     )
