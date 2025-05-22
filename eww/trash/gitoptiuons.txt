@@ -1,0 +1,49 @@
+;; (defwindow GitOptions
+;;     :monitor 0
+;;     :geometry (geometry :x "2460px" :y "670px" :width "150px" :height "70px")
+;;     :stacking "fg"
+;;     :exclusive true
+;;     :focusable false
+
+;;     (box :orientation "horizontal" :class "GitOptions"
+;;         (box :class "gitFrame" :orientation "vertical" :space-evenly false :expand false
+;;             (label :class "title gitTitle" :text "Git Options" )
+;;             (box :class "gitButtons" :orientation "vertical"
+
+;;                 (eventbox :cursor "pointer"
+;;                     (button :class "gitBut updateRepo" :onclick "notify-send 'Clicked1!'" "Sync-Push")
+;;                 )
+
+;;                 (eventbox :cursor "pointer"
+;;                     (button :class "gitBut addRepo" :onclick "notify-send 'Clicked1!'" "Add")
+;;                 )
+
+;;                 (eventbox :cursor "pointer"
+;;                     (button :class "gitBut reqRepo" :onclick "notify-send 'Clicked1!'" "Request")
+;;                 )
+;;             )
+;;         )
+;;     )
+;; )
+
+
+//========================================================================//
+//===============================Git Options==============================//
+//========================================================================//
+// .GitOptions {
+//   min-width: 300px;
+//   min-height: 300px;
+// }
+
+// .gitTitle {
+//   font-size: 28px;
+// }
+
+// .gitBut {
+//   font-size: 30px;
+//   margin-top: 12px;
+// }
+
+// .gitBut:hover { color: #6200ff; }
+
+// .updateRepo { margin-top: 20px; }

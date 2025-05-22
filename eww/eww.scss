@@ -1,0 +1,145 @@
+* {
+  text-shadow: 3px 3px 3px black;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+window {
+  background: rgba(241, 87, 87, 0);
+}
+
+//========================================================================//
+//===============================Lustra Sprite===============================//
+//========================================================================//
+
+
+.LustraSprite {
+  min-width: 1100px;
+  min-height: 600px;
+  // background-color: rgba(166, 57, 255, 1);
+}
+
+.SpriteArt {
+  color: #a10043;
+  font-weight: bolder;
+  // font-size: 12px;
+  text-shadow: 3px 3px rgb(63, 0, 16);
+}
+
+
+//========================================================================//
+//===============================Main Widget===============================//
+//========================================================================//
+
+.LustraTitle {
+  margin-left: 8px;
+  font-size: 40px;
+  margin-top: 20px;
+  font-style: italic;
+  font-weight: bolder;
+  color:#a10043;
+  border-bottom: 3px solid #a10043;
+  padding-bottom: 10px;
+  text-shadow: 5px 5px 5px black;
+  margin-left: 20px;
+  min-width: 150px;
+}
+
+.ButtonOption {
+  all: unset;
+  background: rgba(117, 0, 45, 0.349);
+  border: 0px;
+  font-size: 35px;
+  font-style: italic;
+  font-weight: bolder;
+  color: #a10043;
+  text-shadow: 5px 5px 2px black;
+  border: 2px solid #a10043;
+  padding: 6px 12px;
+  margin-right: 20px;
+  transition: all 0.2s ease-out;
+  min-width: 141px;
+}
+
+.ButtonOption:hover { 
+  color: #6200ff;
+  border-color: #6200ff;
+  background: rgba(117, 0, 45, 0.349);
+  transition: all 0.2s ease-in;
+}
+
+
+.DialogueFrame {
+  background-color: rgba(117, 0, 45, 0.349);
+  border-radius: 10px;
+  border: 2px solid #a10043;
+  min-height: 350px;
+  min-width: 1880px;
+  margin-top: 10px;
+}
+
+.aiMessage {
+  font-family:'Times New Roman', Times, serif;
+  color: #ff036c;
+  margin:10px 10px 0 10px;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 24px;
+}
+
+//========================================================================//
+//===============================Power Frame===============================//
+//========================================================================//
+
+.BackButton {
+  margin-left: 755px;
+}
+
+.PowerOpt {
+  all: unset;
+  border: 0px;
+  font-size: 35px;
+  font-style: italic;
+  font-weight: bolder;
+  color: #a10043;
+  text-shadow: 5px 5px 2px black;
+  padding: 12px 20px;
+  transition: all 0.2s ease-out;
+}
+
+.PowerOpt:hover { 
+  color: #6200ff;
+  border-color: #6200ff;
+  background: rgba(117, 0, 45, 0.349);
+  transition: all 0.2s ease-in;
+}
+
+.PowOpt1 {
+  margin-top: 15px;
+}
+
+
+//========================================================================//
+//===============================Chat Frame===============================//
+//========================================================================//
+
+.BackButton1 {
+  margin-left: 20px;
+}
+
+.InputContainer {
+  border-top: 3px solid #a10043;
+  border-bottom: 3px solid #a10043;
+  background: rgba(163, 0, 63, 0.575);
+  min-width: 725px;
+  padding: 5px;
+}
+
+.InputMsg {
+  all: unset;
+  background: rgba(0, 0, 0, 0);
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: bolder;
+  color: #ff036c;
+  margin-left: 12px;
+}

@@ -1,0 +1,322 @@
+; HARDWARE
+(defpoll CPU :interval "5s" `python scripts/main/SystemStats.py --cpu`)
+(defpoll RAM :interval "5s" `python scripts/main/SystemStats.py --ram`)
+(defpoll GPU :interval "5s" `python scripts/main/SystemStats.py --gpu`)
+(defpoll cpuBar :interval "5s" `python scripts/main/SystemStats.py --cpuBar`)
+(defpoll ramBar :interval "5s" `python scripts/main/SystemStats.py --ramBar`)
+(defpoll gpuBar :interval "5s" `python scripts/main/SystemStats.py --gpuBar`)
+
+; MUSIC
+(defpoll MusicInfo :interval "0s" `python scripts/main/MusicControl.py --musicInf --player spotify`)
+(defpoll musicStatus :interval "0s" `python scripts/main/MusicControl.py --musicStat --player spotify`)
+(defpoll musicBar :interval "0s" `python scripts/main/MusicControl.py --musicBar --player spotify`)
+
+; ENVIRONMENT
+(defpoll TimeStat :interval "1s" `python3 ~/.config/eww/scripts/main/clock.py --clock`)
+(defpoll DateStat :interval "3600s" `python3 ~/.config/eww/scripts/main/clock.py --date`)
+(defpoll weather :interval "1800s" "python3 /home/haedyn06/.config/eww/scripts/main/weathStat.py")
+
+; SYSTEM
+;; (defpoll brightness :interval "0s" "python3 ~/.config/eww/scripts/brightnessControl.py")
+(defpoll volumes :interval "1s" "python3 ~/.config/eww/scripts/main/volume.py")
+(defpoll volumetxt :interval "1s" `python3 ~/.config/eww/scripts/systemScript/getVolume.py --volformat`)
+(defpoll volumeVal :interval "1s" `python3 ~/.config/eww/scripts/systemScript/getVolume.py --volVal`)
+
+(defpoll brightnesstxt :interval "10s" `python3 ~/.config/eww/scripts/systemScript/getBrightness.py --brightnessformat`)
+(defpoll brightnessVal :interval "10s" `python3 ~/.config/eww/scripts/systemScript/getBrightness.py --brightnessVal`)
+
+; AI CHATBOT
+(defpoll Nikano :interval "2s" "python3 ~/.config/eww/scripts/NikanoScript/Nikanooutput.py")
+(defpoll AiResponse :interval "2s" "python3 /home/haedyn06/Programs/CorePrograms/SystemPrograms/core/AiManager/src/AiResponse.py")
+(defpoll AiResponseII :interval "3600s" "/home/haedyn06/.local/share/pipx/venvs/langchain-ollama/bin/python /home/haedyn06/Programs/CorePrograms/SystemPrograms/core/AiManager/OpenLustra.py")
+
+
+;;/home/haedyn06/.local/share/pipx/venvs/langchain-ollama/bin/python .config/eww/scripts/aichatBot.py
+
+; API
+(defpoll gitted :interval "1s" `python3 ~/.config/eww/scripts/main/gitStreak.py --streaked`)
+
+
+
+;; :geometry (geometry :x "2380px" :y "100px" :width "150px" :height "70px")
+(defwindow LustraSprite
+    :monitor 0
+    :geometry (geometry :x "70.3%" :y "6.9%" :width "4.3%" :height "4.9%")
+    :stacking "fg"
+    :exclusive true
+    :focusable false
+
+    (box :orientation "horizontal" :class "LustraSprite"
+        (label :text Nikano :class "SpriteArt")
+    )
+)
+
+
+; :geometry (geometry :x "1013px" :y "200px" :width "150px" :height "70px")
+(defwindow DialogueWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+
+    (box :orientation "vertical" :class "DialogueWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "Lustra" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "start" :space-evenly false :expand false
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption ButOpt1" :onclick "eww open PowerWidget && \ eww close DialogueWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Power" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption ButOpt4" :onclick "eww open AppsWidget && \ eww close DialogueWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Config" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption ButOpt2" :onclick "eww open AppsWidget && \ eww close DialogueWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Apps" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+
+                (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption ButOpt5" :onclick "eww open ChatWidget && \ eww close DialogueWidget"
+                        (box :orientation "vertical" :halign "center" :space-evenly false :expand false
+                            (label :text "Chat" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+
+                (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption ButOpt6" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Help'"
+                        (box :orientation "vertical" :halign "center" :space-evenly false :expand false
+                            (label :text "Help" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+        (box :orientation "vertical" :class "DialogueFrame" :halign "start" :space-evenly false :expand false
+            (box :orientation "vertical" :class "Environtment" :halign "center" :space-evenly false :expand false
+                (box :class "DateTime" :space-evenly false :expand false
+                    (label :class "aiMessage DateTime-Time":valign "start" :halign  "center" :text TimeStat )
+                    (label :class "aiMessage DateTime-Date" :valign "start" :halign  "center" :text DateStat )
+                )
+                (box :class "Weather" :halign "center" :space-evenly false :expand false
+                    (label :class "aiMessage " :text weather) 
+                )  
+            )
+
+            (box :class "DateTime"
+        
+        
+            )
+        
+            (label :class "aiMessage" :valign "start" :halign "start" :text AiResponseII :expand false )
+
+        )
+    )
+)
+
+
+; :geometry (geometry :x "1013px" :y "200px" :width "150px" :height "70px")
+(defwindow PowerWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+
+    (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "Power Menu" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption BackButton" :onclick "eww close PowerWidget && \ eww open DialogueWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Back" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+
+        (box :orientation "vertical" :class "DialogueFrame PowerMenu" :halign "start" :space-evenly false :expand false
+            
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt1" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Shutdown" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Reboot" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Sleep" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt4" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Logout" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt5" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Chat'"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Lock" :class "button-text" :halign "start")
+                    )
+                )
+            )
+        )
+
+    )
+)
+
+
+; :geometry (geometry :x "1013px" :y "200px" :width "150px" :height "70px")
+(defwindow AppsWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+
+    (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "Applications" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption BackButton" :onclick "eww close AppsWidget && \ eww open DialogueWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Back" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+
+        (box :orientation "vertical" :class "DialogueFrame PowerMenu" :halign "start" :space-evenly false :expand false
+            
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt1" :onclick "chromium https://github.com/"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "GitHub" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "chromium --new-window https://connect.raspberrypi.com/devices"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Rapberry Pi" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :onclick "chromium https://www.icloud.com/notes/"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "iCloud Notes" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt4" :onclick "setsid dolphin >/dev/null 2>&1 &"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Files" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt5" :onclick "rofi -show drun -theme & disown && pkill eww"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "..." :class "button-text" :halign "start")
+                    )
+                )
+            )
+        )
+
+    )
+)
+
+
+(defwindow ChatWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+
+    (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "Applications" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
+                (box :orientation "horizontal" :class "InputContainer" :valign "end"
+                    (input :class "InputMsg" :onaccept "python /home/haedyn06/Programs/CorePrograms/SystemPrograms/core/AiManager/src/UserInput.py \"{}\"")
+                )    
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption BackButton1" :onclick "eww close ChatWidget && \ eww open DialogueWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Back" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+
+        (box :orientation "horizontal" :class "DialogueFrame" :halign "start" :space-evenly false :expand false
+            (label :class "aiMessage" :valign "start" :halign "start" :text AiResponse :expand false )
+        )
+
+    )
+)
