@@ -181,7 +181,7 @@
             )
 
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :class "Sleep" :onclick "systemctl suspend"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :onclick "systemctl suspend"
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "Sleep" :class "button-text" :halign "start")
                     )
