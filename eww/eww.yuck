@@ -29,6 +29,8 @@
 (defpoll Nikano :interval "2s" "python3 ~/.config/eww/scripts/NikanoScript/Nikanooutput.py")
 (defpoll AiResponse :interval "2s" "python3 /home/haedyn06/Programs/CorePrograms/SystemPrograms/core/AiManager/src/AiResponse.py")
 (defpoll AiResponseII :interval "3600s" "/home/haedyn06/.local/share/pipx/venvs/langchain-ollama/bin/python /home/haedyn06/Programs/CorePrograms/SystemPrograms/core/AiManager/OpenLustra.py")
+(defpoll HelpResponse :interval "0s" `cat /home/haedyn06/.config/eww/temp/helpTemp.txt`)
+
 
 
 ;;/home/haedyn06/.local/share/pipx/venvs/langchain-ollama/bin/python .config/eww/scripts/aichatBot.py
@@ -51,6 +53,9 @@
     )
 )
 
+;;;;;;;;;;
+;; MAIN ;; CLEAR
+;;;;;;;;;;
 
 ; :geometry (geometry :x "1013px" :y "200px" :width "150px" :height "70px")
 (defwindow DialogueWidget
@@ -77,7 +82,7 @@
                 )
 
                 (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
-                    (button :orientation "horizontal" :class "ButtonOption ButOpt4" :onclick "eww open AppsWidget && \ eww close DialogueWidget"
+                    (button :orientation "horizontal" :class "ButtonOption ButOpt2" :onclick "eww open ConfigWidget && \ eww close DialogueWidget"
                         (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
                             (label :text "Config" :class "button-text" :halign "center")
                         )
@@ -85,7 +90,7 @@
                 )
 
                 (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
-                    (button :orientation "horizontal" :class "ButtonOption ButOpt2" :onclick "eww open AppsWidget && \ eww close DialogueWidget"
+                    (button :orientation "horizontal" :class "ButtonOption ButOpt3" :onclick "eww open AppsWidget && \ eww close DialogueWidget"
                         (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
                             (label :text "Apps" :class "button-text" :halign "center")
                         )
@@ -93,7 +98,7 @@
                 )
 
                 (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                    (button :orientation "horizontal" :class "ButtonOption ButOpt5" :onclick "eww open ChatWidget && \ eww close DialogueWidget"
+                    (button :orientation "horizontal" :class "ButtonOption ButOpt4" :onclick "eww open ChatWidget && \ eww close DialogueWidget"
                         (box :orientation "vertical" :halign "center" :space-evenly false :expand false
                             (label :text "Chat" :class "button-text" :halign "center")
                         )
@@ -101,7 +106,7 @@
                 )
 
                 (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                    (button :orientation "horizontal" :class "ButtonOption ButOpt6" :onclick "notify-send -i ~/Pictures/FaceBar/uwuHit.png 'HITLER AI' 'Help'"
+                    (button :orientation "horizontal" :class "ButtonOption ButOpt5" :onclick "python3 /home/haedyn06/.config/eww/scripts/main/randomDiaHelp.py && eww open HelpWidget && \ eww close DialogueWidget"
                         (box :orientation "vertical" :halign "center" :space-evenly false :expand false
                             (label :text "Help" :class "button-text" :halign "center")
                         )
@@ -133,6 +138,9 @@
     )
 )
 
+;;;;;;;;;;;
+;; POWER ;; CLEAR
+;;;;;;;;;;;
 
 ; :geometry (geometry :x "1013px" :y "200px" :width "150px" :height "70px")
 (defwindow PowerWidget
@@ -209,6 +217,89 @@
 )
 
 
+;;;;;;;;;;;;;
+;; CONFIGS ;; NOT CLEAR
+;;;;;;;;;;;;;
+
+; :geometry (geometry :x "1013px" :y "200px" :width "150px" :height "70px")
+(defwindow ConfigWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+
+    (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "Configs" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption BackButton" :onclick "eww close ConfigWidget && \ eww open DialogueWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Back" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+
+        (box :orientation "vertical" :class "DialogueFrame PowerMenu" :halign "start" :space-evenly false :expand false
+            
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt1" :onclick "code ~/.config/hypr"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Hyprland" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "code ~/CorePrograms/SystemPrograms/"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "System" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :onclick "code ~/.config/eww"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Widgets" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt4" :onclick "code ~/.config/waybar"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Taskbar" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt5" :onclick "code /usr/share/sddm/themes/Lustra-Proto-Login/"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Login" :class "button-text" :halign "start")
+                    )
+                )
+            )
+        )
+
+    )
+)
+
+
+;;;;;;;;;;
+;; APPS ;; CLEAR
+;;;;;;;;;;
+
 ; :geometry (geometry :x "1013px" :y "200px" :width "150px" :height "70px")
 (defwindow AppsWidget
     :monitor 0
@@ -284,6 +375,10 @@
 )
 
 
+;;;;;;;;;;
+;; CHAT ;; CLEAR
+;;;;;;;;;;
+
 (defwindow ChatWidget
     :monitor 0
     :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
@@ -295,7 +390,7 @@
     (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
         (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
             (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
-                (label :text "Applications" :class "LustraTitle")
+                (label :text "Lustra Chat" :class "LustraTitle")
             )
 
             (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
@@ -318,5 +413,96 @@
             (label :class "aiMessage" :valign "start" :halign "start" :text AiResponse :expand false )
         )
 
+    )
+)
+
+;;;;;;;;;;
+;; HELP ;; NOT CLEAR
+;;;;;;;;;;
+(defwindow HelpWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+
+    (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "Help" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
+                (box :orientation "horizontal" :class "InputContainer" :valign "end"
+                    (input :class "InputMsg" :onaccept "python /home/haedyn06/.config/eww/scripts/commandControls/maincmd.py \"{}\"")
+                )    
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption BackButton1" :onclick "eww close HelpWidget && \ eww open DialogueWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Back" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+        (box :orientation "vertical" :class "DialogueFrame PowerMenu" :halign "start" :space-evenly false :expand false
+            
+            (label :class "aiMessage helpMsg" :valign "start" :halign "start" :text HelpResponse :expand false )
+            
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt1" :onclick "code ~/.config/hypr"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "System Statistics" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "code ~/CorePrograms/SystemPrograms/"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Music Help" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :onclick "code ~/.config/eww"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Network Help" :class "button-text" :halign "start")
+                    )
+                )
+            )
+
+            (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
+                (button :orientation "horizontal" :class "PowerOpt PowOpt4" :onclick "code ~/.config/eww"
+                    (box :orientation "vertical" :halign "start" :space-evenly false :expand false
+                        (label :text "Prefixes" :class "button-text" :halign "start")
+                    )
+                )
+            )
+        )
+
+
+
+    )
+)
+
+;;;;;;;;;;;;;
+;; CMD BAR ;; NOT CLEAR
+;;;;;;;;;;;;;
+
+(defwindow cmdBar
+    :monitor 0
+    :geometry (geometry :x "43.6%" :y "0.7%" :width "11.6%" :height "0.35%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+    (box :orientation "horizontal" :valign "center" :space-evenly false :expand false
+        (label :text "> " :class "pretext")
+        (input :class "cmdBox" :onaccept "python /home/haedyn06/.config/eww/scripts/commandControls/maincmd.py \"{}\"")
     )
 )

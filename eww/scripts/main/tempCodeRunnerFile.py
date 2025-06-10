@@ -1,3 +1,0 @@
-
-
-    # if arg == "--streaked":

@@ -143,3 +143,48 @@ window {
   color: #ff036c;
   margin-left: 12px;
 }
+
+
+//========================================================================//
+//===============================HELP Frame===============================//
+//========================================================================//
+
+.helpMsg {
+  font-size: 30px;
+  margin: 15px 0 0 15px;
+  border-bottom: 2px solid #ff036c;
+  padding-bottom: 12px;
+
+}
+
+
+
+//========================================================================//
+//===============================CMD Frame===============================//
+//========================================================================//
+
+.cmdBar {
+  background-color: rgba(117, 0, 45, 0.349);
+  background: rgba(117, 0, 45, 0.349);
+  border: 2px solid #a10043;
+  color: #ff036c;
+  border-radius: 5px;
+}
+
+
+.cmdBox {
+  all: unset;
+  background: rgba(0, 0, 0, 0);
+  padding: 5px 0 5px;
+  margin-left: 2px;
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: bolder;
+  min-width: 400px;
+}
+
+.pretext{
+  font-size: 18px;
+  margin-left: 10px;
+  font-weight: bolder;
+}
