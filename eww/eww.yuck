@@ -260,7 +260,7 @@
             )
 
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "code ~/CorePrograms/SystemPrograms/"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "code /home/haedyn06/Programs/CorePrograms/SystemPrograms/"
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "System" :class "button-text" :halign "start")
                     )
@@ -448,12 +448,13 @@
 
         )
 
+
         (box :orientation "vertical" :class "DialogueFrame PowerMenu" :halign "start" :space-evenly false :expand false
             
             (label :class "aiMessage helpMsg" :valign "start" :halign "start" :text HelpResponse :expand false )
             
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt1" :onclick "code ~/.config/hypr"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt1" :onclick "eww open SystemStatWidget && \ eww close HelpWidget" ;;System
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "System Statistics" :class "button-text" :halign "start")
                     )
@@ -461,7 +462,7 @@
             )
 
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "code ~/CorePrograms/SystemPrograms/"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt2" :onclick "eww open MusicWidget && \ eww close HelpWidget" ;; Music
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "Music Help" :class "button-text" :halign "start")
                     )
@@ -469,7 +470,7 @@
             )
 
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :onclick "code ~/.config/eww"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt3" :onclick "eww open NetworkWidget && \ eww close HelpWidget" ;; Network
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "Network Help" :class "button-text" :halign "start")
                     )
@@ -477,7 +478,7 @@
             )
 
             (eventbox :cursor "pointer" :orientation "vertical" :space-evenly false :expand false
-                (button :orientation "horizontal" :class "PowerOpt PowOpt4" :onclick "code ~/.config/eww"
+                (button :orientation "horizontal" :class "PowerOpt PowOpt4" :onclick "eww open PrefixWidget && \ eww close HelpWidget" ;; Prefixes
                     (box :orientation "vertical" :halign "start" :space-evenly false :expand false
                         (label :text "Prefixes" :class "button-text" :halign "start")
                     )
@@ -504,5 +505,170 @@
     (box :orientation "horizontal" :valign "center" :space-evenly false :expand false
         (label :text "> " :class "pretext")
         (input :class "cmdBox" :onaccept "python /home/haedyn06/.config/eww/scripts/commandControls/maincmd.py \"{}\"")
+    )
+)
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;
+;; SYSTEM STATISTICS ;; NOT CLEAR
+;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwindow SystemStatWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+
+    (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "System Stats" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
+                (box :orientation "horizontal" :class "InputContainer" :valign "end"
+                    (input :class "InputMsg" :onaccept "python /home/haedyn06/.config/eww/scripts/commandControls/maincmd.py \"{}\"")
+                )    
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption BackButton1" :onclick "eww close SystemStatWidget && \ eww open HelpWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Back" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+        (box :orientation "vertical" :class "DialogueFrame" :halign "start" :space-evenly false :expand false
+            (label :class "constructMsg" :valign "center" :halign "center" :text "[ Under Maintenance ]" :expand false )
+        )
+    )
+)
+
+
+;;;;;;;;;;;
+;; MUSIC ;; NOT CLEAR
+;;;;;;;;;;;
+
+(defwindow MusicWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+    ; Title
+    (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "Music Controls" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
+                (box :orientation "horizontal" :class "InputContainer" :valign "end"
+                    (input :class "InputMsg" :onaccept "python /home/haedyn06/.config/eww/scripts/commandControls/maincmd.py \"{}\"")
+                )    
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption BackButton1" :onclick "eww close MusicWidget && \ eww open HelpWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Back" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+        ; Buttons
+        (box :orientation "vertical" :class "DialogueFrame" :halign "start" :space-evenly false :expand false
+            (label :class "constructMsg" :valign "center" :halign "center" :text "[ Under Maintenance ]" :expand false )
+        )
+    )
+)
+
+
+;;;;;;;;;;;;;
+;; NETWORK ;; NOT CLEAR
+;;;;;;;;;;;;;
+
+(defwindow NetworkWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+    ; Title
+    (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "Network Controls" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
+                (box :orientation "horizontal" :class "InputContainer" :valign "end"
+                    (input :class "InputMsg" :onaccept "python /home/haedyn06/.config/eww/scripts/commandControls/maincmd.py \"{}\"")
+                )    
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption BackButton1" :onclick "eww close NetworkWidget && \ eww open HelpWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Back" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+        ; Buttons
+        (box :orientation "vertical" :class "DialogueFrame" :halign "start" :space-evenly false :expand false
+            (label :class "constructMsg" :valign "center" :halign "center" :text "[ Under Maintenance ]" :expand false )
+        )
+    )
+)
+
+
+;;;;;;;;;;;;
+;; PREFIX ;; NOT CLEAR
+;;;;;;;;;;;;
+
+(defwindow PrefixWidget
+    :monitor 0
+    :geometry (geometry :x "15%" :y "60%" :width "52%" :height "20%")
+    :stacking "fg"
+    :exclusive true
+    :focusable true
+
+    ; Title
+    (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
+        (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
+            (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
+                (label :text "Prefix Help" :class "LustraTitle")
+            )
+
+            (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
+                (box :orientation "horizontal" :class "InputContainer" :valign "end"
+                    (input :class "InputMsg" :onaccept "python /home/haedyn06/.config/eww/scripts/commandControls/maincmd.py \"{}\"")
+                )    
+                (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
+                    (button :orientation "horizontal" :class "ButtonOption BackButton1" :onclick "eww close PrefixWidget && \ eww open HelpWidget"
+                        (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
+                            (label :text "Back" :class "button-text" :halign "center")
+                        )
+                    )
+                )
+            )
+
+        )
+
+        ; Buttons
+        (box :orientation "vertical" :class "DialogueFrame" :halign "start" :space-evenly false :expand false
+            (label :class "constructMsg" :valign "center" :halign "center" :text "[ Under Maintenance ]" :expand false )
+        )
     )
 )

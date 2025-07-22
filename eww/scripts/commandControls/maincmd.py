@@ -98,39 +98,35 @@ def openApp(ApptoOpen):
 
 if usrInp:
     print(lowsplitInp)
-    if lowsplitInp[0] == "bored":
-        subprocess.run(["notify-send", "Lustra", "I mean live do bea boring"])
-    elif "mommy" in lowsplitInp or "lustra" in lowsplitInp:
-        subprocess.run(["notify-send", "Lustra", "How can i help you sweetie"])
-    
-    #Music Controls
-    elif lowinp == "play" or lowinp == "stop":
-        musiccmd.togglePlay()
-    elif lowinp == "repeat":
-        musiccmd.repeatTrack()
-    elif lowinp == "next":
-        musiccmd.nextTrack()
-    elif lowinp == "loop":
-        musiccmd.toggleLoop()
-    elif lowinp == "shuffle":
-        musiccmd.toggleShuffle()
-    
-    #App Controls
-    elif lowinp in codePaths:
-        path = os.path.expanduser(codePaths[lowinp])
-        subprocess.run(["code", path])
-    elif lowinp in appPaths:
-        openApp(appPaths[lowinp])
-    elif lowinp in applicationsPaths:
-        subprocess.run(applicationsPaths[lowinp])
 
-    else:
-        try:
-            subprocess.run(usrInp, shell=True, check=True)
-        except subprocess.CalledProcessError as e:
-            subprocess.run(["notify-send", "*Error", "Invalid Request"])
+    #Music Controls
+    match lowinp:
+        case "play" | "stop":
+            musiccmd.togglePlay()
+        case "repeat":
+            musiccmd.repeatTrack()
+        case "next":
+            musiccmd.nextTrack()
+        case "loop":
+            musiccmd.toggleLoop()
+        case "shuffle":
+            musiccmd.toggleShuffle()
+        case _:
+            if lowinp in codePaths:
+                path = os.path.expanduser(codePaths[lowinp])
+                subprocess.run(["code", path])
+            elif lowinp in appPaths:
+                openApp(appPaths[lowinp])
+            elif lowinp in applicationsPaths:
+                subprocess.run(applicationsPaths[lowinp])
+            else:
+                try:
+                    subprocess.run(usrInp, shell=True, check=True)
+                except subprocess.CalledProcessError as e:
+                    subprocess.run(["notify-send", "*Error", "Invalid Request"])
 
     subprocess.run(["eww", "close", "cmdBar"])
+
 
 
 
