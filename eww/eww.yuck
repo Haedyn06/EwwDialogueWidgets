@@ -512,7 +512,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;
-;; SYSTEM STATISTICS ;; NOT CLEAR
+;; SYSTEM STATISTICS ;; CLEAR
 ;;;;;;;;;;;;;;;;;;;;;;;
 
 (defwindow SystemStatWidget
@@ -544,15 +544,44 @@
 
         )
 
-        (box :orientation "vertical" :class "DialogueFrame" :halign "start" :space-evenly false :expand false
-            (label :class "constructMsg" :valign "center" :halign "center" :text "[ Under Maintenance ]" :expand false )
+        (box :orientation "vertical" :class "DialogueFrame" :valign "end" :halign "center" :space-evenly false :expand false
+            (box :orientation "vertical" :valign "center" :halign "center" :space-evenly false :expand false
+                (box :class "cpu" :orientation "horizontal" :space-evenly false :expand false
+                    (label :text CPU :class "sys-text")
+
+                    (box  :orientation "vertical" :class "barBorder" 
+                        (label :class "sysDesc cpuDesc" :text "[AMD Ryzen 5 3600 (12) @ 3.600GHz]" )
+                        (box :class "progressBar" (progress :value cpuBar :class "bar cpu-bar"))
+                    )
+                    
+                )
+
+                (box :class "ram" :orientation "horizontal" :space-evenly false :expand false
+                    (label :text RAM :class "sys-text ram")
+                    
+                    (box :orientation "vertical" :class "barBorder" 
+                        (label :class "sysDesc ramDesc" :text "[32GB]" )
+                        (box :class "progressBar" (progress :value ramBar :class "bar ram-bar"))
+                    )
+                )
+
+                (box :class "gpu" :orientation "horizontal" :space-evenly false :expand false
+                    (label :text GPU :class "sys-text gpu")
+                    
+                    (box :orientation "vertical" :class "barBorder" 
+                        (label :class "sysDesc gpuDesc" :text "[NVIDIA GeForce GTX 1660 SUPER]" )
+                        (box :class "progressBar" (progress :value gpuBar :class "bar gpu-bar" ))
+                    )
+                )
+            
+            )
         )
     )
 )
 
 
 ;;;;;;;;;;;
-;; MUSIC ;; NOT CLEAR
+;; MUSIC ;; CLEAR
 ;;;;;;;;;;;
 
 (defwindow MusicWidget
@@ -566,18 +595,16 @@
     (box :orientation "vertical" :class "DialogueWidget PowerWidget" :space-evenly false :expand false
         (box :orientation "horizontal" :class "TopBar" :valign "start" :halign "start"
             (box :orientation "horizontal" :class "NameLabel" :valign "start" :halign "start"
-                (label :text "Music Controls" :class "LustraTitle")
-            )
+                (label :text "Music Controls" :class "LustraTitle"))
 
             (box :orientation "horizontal" :class "Options" :valign "end" :halign "end" :space-evenly false :expand false
                 (box :orientation "horizontal" :class "InputContainer" :valign "end"
-                    (input :class "InputMsg" :onaccept "python /home/haedyn06/.config/eww/scripts/commandControls/maincmd.py \"{}\"")
-                )    
+                    (input :class "InputMsg" :onaccept "python /home/haedyn06/.config/eww/scripts/commandControls/maincmd.py \"{}\""))
+
                 (eventbox :cursor "pointer" :orientation "horizontal" :space-evenly false :expand false
                     (button :orientation "horizontal" :class "ButtonOption BackButton1" :onclick "eww close MusicWidget && \ eww open HelpWidget"
                         (box :orientation "horizontal" :halign "center" :space-evenly false :expand false
-                            (label :text "Back" :class "button-text" :halign "center")
-                        )
+                            (label :text "Back" :class "button-text" :halign "center"))
                     )
                 )
             )
@@ -586,7 +613,29 @@
 
         ; Buttons
         (box :orientation "vertical" :class "DialogueFrame" :halign "start" :space-evenly false :expand false
-            (label :class "constructMsg" :valign "center" :halign "center" :text "[ Under Maintenance ]" :expand false )
+            (box :valign "start" :orientation "vertical"
+                (label :class "MusicInfo" :text MusicInfo)
+                (label :class "MusicBar" :text musicBar)
+            )
+
+            (box :orientation "horizontal" :class "MusicControls" :halign "center"
+                (eventbox :cursor "pointer"
+                    (button :class "playBack" :onclick "playerctl previous" "◁◁"))
+
+                (eventbox :cursor "pointer"
+                    (button :class "togglePlay" :onclick "playerctl -p spotify play-pause" musicStatus))
+                
+                (eventbox :cursor "pointer"
+                    (button :class "playForward" :onclick "playerctl next" "▷▷"))
+            )
+
+
+            (box :orientation "horizontal" :class "MusicApps" :valign "end" :halign "center"
+                (eventbox :cursor "pointer"
+                    (button  :class "musicLabel" :onclick "python ~/.config/eww/scripts/main/workspaceScript.py" "Spotify ") ;;スポティファイ
+                )
+            )
+
         )
     )
 )

@@ -101,7 +101,7 @@ if usrInp:
 
     #Music Controls
     match lowinp:
-        case "play" | "stop":
+        case "play" | "pause":
             musiccmd.togglePlay()
         case "repeat":
             musiccmd.repeatTrack()

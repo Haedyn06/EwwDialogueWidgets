@@ -197,3 +197,130 @@ window {
   color: #ff036c;
 
 }
+
+
+//========================================================================//
+//===============================System Frame===============================//
+//========================================================================//
+
+.sys-text {
+  font-size: 25px;
+  font-weight: bolder;
+  font-style: italic;
+  color: rgb(255, 0, 76);
+  text-shadow: 5px 5px 2px black;
+}
+
+.sysDesc {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bolder;
+  font-style: italic;
+  color: rgb(255, 0, 76);
+  text-shadow: 5px 5px 2px black;
+}
+
+// .cpuDesc {margin-right: 110px;}
+// .ramDesc {margin-right: 220px;}
+// .gpuDesc {margin-right: 115px;}
+
+.barBorder{
+  margin: 0 0 0 20px;
+}
+
+.bar {
+  margin-bottom: 7px;
+  margin: 0 8px 7px 8px;
+  
+}
+
+.gpu-bar > trough, .ram-bar > trough, .cpu-bar > trough, .MusicBar > trough {
+  all: unset;
+}
+
+.progressBar {
+  min-height: 20px;
+  margin-top: 2px;
+  border: 2px solid #a10043;
+  border-radius: 8px;
+}
+
+progress {
+  background-color: #a10043;
+  border-radius: 2px;
+  border-color: rgba(0, 0, 0, 0);
+  font-size: 450px;
+}
+
+.cpu, .ram, .gpu {
+
+  margin-top: 20px;
+  margin-left: 15px;
+
+}
+
+//========================================================================//
+//===============================Music Frame===============================//
+//========================================================================//
+
+.MusicInfo {
+  margin: 30px 0 0px 0 ;
+  font-size: 30px;
+  background: rgba(0, 0, 0, 0);
+  color: #a10043;
+  font-weight: bolder;
+  font-style: italic;
+  text-shadow: 5px 5px 5px black;
+}
+
+.MusicBar {
+  margin: 15px 0 0px 0 ;
+  background: rgba(0, 0, 0, 0);
+  color: #a10043;
+  font-weight: bolder;
+  border: 0px;
+  font-size: 25px;
+  text-shadow: 5px 5px 5px black;
+}
+
+
+.playBack, .togglePlay, .playForward {
+  background: rgba(0, 0, 0, 0);
+  color: #a10043;
+  font-weight: bolder;
+  border: 0px;
+  font-size: 40px;
+}
+
+
+.togglePlay {
+  font-size: 60px;
+  margin-top: 5px;
+}
+
+.playBack:hover, .togglePlay:hover, .playForward:hover {
+  color: #6200ff;
+  font-weight: bolder;
+  border: 0px;
+  text-shadow: 5px 5px 5px black;
+  font-size: 30px;
+}
+
+.togglePlay:hover {
+  font-size: 50px;
+}
+
+.musicLabel {
+  background: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+  color: #ff006a;
+  font-weight: bolder;
+  font-size: 45px;
+  text-shadow: 5px 5px 5px black;
+  padding: 0 25px 0 10px;
+  margin-top: 20px;
+}
+
+.musicLabel:hover {
+  color: #6200ff;
+}
